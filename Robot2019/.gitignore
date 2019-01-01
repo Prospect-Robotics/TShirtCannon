@@ -1,7 +1,1 @@
 /bin/
-/build/
-/dist/
-
-.idea
-*.iml
-.classpath
