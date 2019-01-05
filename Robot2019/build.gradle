@@ -11,7 +11,7 @@ repositories{
     maven {url "http://devsite.ctr-electronics.com/maven/release/"}
 }
 
-ext.PhoenixVersion = "5.8.1"
+ext.PhoenixVersion = "5.12.0"
 
 
 def ROBOT_MAIN_CLASS = "frc.team2813.robot.Main"
