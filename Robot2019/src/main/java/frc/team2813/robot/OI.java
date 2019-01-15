@@ -13,7 +13,7 @@ public class OI {
 	
 	public OI() {
 		joystick = new Joystick(JOYSTICK_ID);
-		new JoystickButton(joystick, 1).whileHeld(new ToggleSolenoid(solenoid));
+		new JoystickButton(joystick, 1).whenPressed(new ToggleSolenoid(solenoid));
 		
 		
 		
