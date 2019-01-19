@@ -9,7 +9,10 @@ package frc.team2813.robot;
 
 import frc.team2813.robot.OI;
 import frc.team2813.robot.DriveTrain;
-
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoSink;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -29,6 +32,9 @@ public class Robot extends TimedRobot {
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
 	public static DriveTrain driveTrain;
 	public static OI oi;
+	public static UsbCamera camera0;
+	public static UsbCamera camera1;
+	public static VideoSink server;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -42,6 +48,17 @@ public class Robot extends TimedRobot {
 		
 		driveTrain = new DriveTrain();
 		oi = new OI();
+		
+		camera0 = CameraServer.getInstance().startAutomaticCapture("Front", 0);
+		camera0.setResolution(320,240);
+		camera0.setFPS(15);
+		camera1 = CameraServer.getInstance().startAutomaticCapture("Rear", 1);
+		camera1.setResolution(320,240);
+		camera1.setFPS(15);
+		server = CameraServer.getInstance().getServer();
+		System.out.println("CAMERA defaulting to FRONT upon startup");
+		server.setSource(camera0);
+		
 	}
 
 	/**
@@ -85,6 +102,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		
 	}
 
 	/**

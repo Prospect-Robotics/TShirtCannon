@@ -34,8 +34,11 @@ public class DriveTrain extends Subsystem {
 //    	return (ConfigureEncoderToTalon.getDefaultDistance(driveTrainLeft, PID_LOOP) + ConfigureEncoderToTalon.getDefaultDistance(driveTrainRight, PID_LOOP))/2;
 //    }
     public void arcadeDrive(Joystick joystick) {
-    	
-    	robotDrive.arcadeDrive(joystick.getY(), -joystick.getX());
+    	if (Robot.server.getSource() == Robot.camera0) {
+    		robotDrive.arcadeDrive(joystick.getY(), -joystick.getX());
+    	} else {
+    		robotDrive.arcadeDrive(-joystick.getY(), joystick.getX());
+    	}
     }
     
     public void arcadeDrive(double speed) {

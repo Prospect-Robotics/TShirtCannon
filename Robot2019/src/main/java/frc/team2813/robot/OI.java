@@ -3,7 +3,7 @@ package frc.team2813.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.team2813.robot.commands.ToggleSolenoid;
+import frc.team2813.robot.commands.*;
 
 public class OI {
 	
@@ -16,7 +16,7 @@ public class OI {
 		joystick = new Joystick(JOYSTICK_ID);
 		new JoystickButton(joystick, 1).whenPressed(new ToggleSolenoid(solenoid));
 		new JoystickButton(joystick, 2).whenPressed(new ToggleSolenoid(solenoid1));
-		
+		JoystickButton a = new JoystickButton(joystick, 3);
 		
 	}
 	
