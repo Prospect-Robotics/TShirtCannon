@@ -11,6 +11,7 @@ import frc.team2813.robot.OI;
 import frc.team2813.robot.DriveTrain;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoSink;
+import edu.wpi.cscore.VideoSource;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -32,8 +33,8 @@ public class Robot extends TimedRobot {
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
 	public static DriveTrain driveTrain;
 	public static OI oi;
-	public static UsbCamera camera0;
-	public static UsbCamera camera1;
+	public static VideoSource camera0;
+	public static VideoSource camera1;
 	public static VideoSink server;
 
 	/**
